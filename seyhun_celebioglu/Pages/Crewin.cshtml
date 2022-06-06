@@ -1,0 +1,74 @@
+﻿@page
+@model seyhun_celebioglu.Pages.CrewinModel
+@{
+}
+
+@if (@Model.Data != null)
+{
+
+
+    <table class="table table-bordered">
+        <tr>
+            <th>İd</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>DiscountPercentage</th>
+            <th>Rating</th>
+            <th>Stock</th>
+            <th>Stock</th>
+            <th>Brand</th>
+            <th>Images</th>
+
+        </tr>
+        @foreach (var item in Model.deger2)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Title</td>
+                <td>@item.Description</td>
+                <td>@item.Price</td>
+                <td>@item.Category</td>
+                <td>@item.DiscountPercentage</td>
+                <td>@item.Rating</td>
+                <td>@item.Stock</td>
+                <td>@item.Brand</td>
+                <td><img src="@item.Thumbnail" width="50" height="60"></td>
+                @for (int i = 0; i < item.Images.Count; i++)
+                {
+                    <td>
+                        <img src="@item.Images[i]" width="50" height="60">
+                    </td>
+                }
+            </tr>
+        }
+
+
+    </table>
+
+
+
+
+}
+else
+{
+    <form method="post">
+        <label for="deger2">Giriniz</label>
+
+        <select name="product" id="product">
+
+            @foreach (var item in @Model.deger)
+            {
+
+                <option value="@item">@item</option>
+
+            }
+            }
+        </select>
+        <input type="submit">
+
+    </form>
+
+
+}
